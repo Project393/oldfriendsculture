@@ -551,6 +551,81 @@
     }
     .toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
 
+    /* ─── PAGE FADE-IN ───────────────────────────────────────── */
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(22px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to   { opacity: 1; }
+    }
+    .wrapper {
+      animation: fadeIn 0.7s ease both;
+    }
+    nav {
+      animation: fadeInUp 0.6s ease 0.1s both;
+    }
+    .hero-logo-wrap {
+      animation: fadeInUp 0.7s ease 0.2s both;
+    }
+    .hero-eyebrow {
+      animation: fadeInUp 0.6s ease 0.35s both;
+    }
+    .hero h1 {
+      animation: fadeInUp 0.7s ease 0.45s both;
+    }
+    .hero-sub {
+      animation: fadeInUp 0.6s ease 0.55s both;
+    }
+    .hero-cta {
+      animation: fadeInUp 0.6s ease 0.65s both;
+    }
+    .hero-badge {
+      animation: fadeInUp 0.6s ease 0.75s both;
+    }
+
+    /* ─── HERO LOGO ──────────────────────────────────────────── */
+    .hero-logo-wrap {
+      width: clamp(200px, 48vw, 320px);
+      aspect-ratio: 6 / 4;
+      border-radius: 28px;
+      overflow: hidden;
+      box-shadow: 0 12px 40px rgba(30,15,5,0.55), 0 0 0 2px rgba(192,120,64,0.3);
+      background: rgba(255,255,255,0.10);
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: 4px;
+    }
+    .hero-logo-wrap img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      border-radius: 28px;
+    }
+    .hero-logo-wrap .hero-logo-fallback {
+      display: none;
+      flex-direction: column;
+      align-items: center; justify-content: center;
+      gap: 10px;
+      width: 100%; height: 100%;
+      padding: 24px;
+      text-align: center;
+    }
+    .hero-logo-fallback .ofc-text {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.4rem, 5vw, 2rem);
+      font-weight: 800;
+      color: var(--cream);
+      line-height: 1.1;
+    }
+    .hero-logo-fallback .ofc-text span { color: var(--amber); }
+    .hero-logo-fallback .ofc-tagline {
+      font-size: 0.7rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: rgba(245,236,215,0.65);
+      font-weight: 500;
+    }
+
     /* ─── RESPONSIVE ─────────────────────────────────────────── */
     @media (max-width: 640px) {
       .nav-links { display: none; }
@@ -573,7 +648,7 @@
   <nav>
     <div class="nav-logo">
       <!-- Logo image: place your logo file as "logo.png" in the same folder -->
-      <img src="logo.png" alt="Old Friends Culture"
+      <img src="logoo.png" alt="Old Friends Culture"
            onerror="this.style.display='none'; this.nextElementSibling.style.display='block';" />
       <div class="logo-fallback" style="display:none;">
         Old <span>Friends</span><br>Culture
@@ -599,6 +674,15 @@
 
   <!-- ── HERO ── -->
   <section class="hero">
+    <!-- Logo with tagline — place your logo file as "logo.png" in the same folder -->
+    <div class="hero-logo-wrap">
+      <img src="logo.png" alt="Old Friends Culture logo"
+           onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+      <div class="hero-logo-fallback">
+        <div class="ofc-text">Old <span>Friends</span><br>Culture</div>
+        <div class="ofc-tagline">Wear the culture</div>
+      </div>
+    </div>
     <p class="hero-eyebrow">Handcrafted Originals</p>
     <h1>Wear the <em>Culture,</em><br>Live the Story.</h1>
     <p class="hero-sub">Old Friends Culture — premium graphic tees born from memories, friendships, and streets that shaped us.</p>
